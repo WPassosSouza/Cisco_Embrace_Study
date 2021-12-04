@@ -1,0 +1,125 @@
+
+COMANDOS   CISCO
+##############  PARTINDO PARA CONFIGURAÇÃO  ##################
+
+#? (lista de ajuda)
+
+#ENABLE ( como root, permissão de administrador)
+#SHOW (vizualização)
+# SHOW RUNNING-CONFIG (visualização de configuração)
+#SHOW Clock (Hora do sistema)
+#CONFIGURE TERMINAL  ( central de menus, para configurações)
+#HOSTNAME  +  NOME (configuraçao de usuário nome)
+#PASSWORD (senha)
+#SHOW (menu visualização)
+#SHOW  IP  INTERFACE BRIEF ( visualização das portas do roteador e se esta UP OU DOWN)
+#SHOW VLAN BRIEF (visualiza as portas vlans)
+# switchport mode Access(Atribuir a porta do PC ao Switch)
+CONFIGURE TERMINAL  VLAN (configurar vlans)
+#INTERFACE FAST (EX:  0/0) – configurando as portas...
+# IP ADDRESS e mascara(configurando ip)
+#BANNER MOTD # (messagem de boas vindas /  depois do config t)
+# NO SHUTDOWN – (Prefixo ‘NO’ antes do comando pra indicar a função reverso – Neste caso não desligar, porem serve pra todos os outros comandos)
+>?
+Copy running-config-config flash (Salva o que esta na memória flash)
+copy running-config startup-config
+Copy running-config-config start-config
+Show ip route – mostra tabela de rota
+
+
+CONFIGURAR OSPF – tabela de roteamento
+
+Ip ospf 10 area 0 (exemplo para roteamentos entre os roteadores (Ex: area 0 define a area que o roteadorvai fazer parte ))
+
+Status OSPF
+	Ip ospf neighbor
+	Show ip route
+  
+=========================================================================================================================================================================
+
+\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/\m/
+
+=========================================================================================================================================================================
+
+
+ Enable
+	Para entrar no modo privilegiado
+
+Configure terminal 
+	Para entrar no modo de configuracao
+
+Interface serial/ethernet numero
+	Para selecionar uma interface
+
+Ex:
+	Interface serial 0
+	Interface ethernet 1
+
+Configurando uma interface ethernet
+	Interface ethernet x (x e’ o numero da interface)
+	Ip address endereco_ip mascara
+	Description descricao da interface
+	No shutdown
+
+Exemplo
+	Interface ethernet 0
+	Ip address 200.1.1.1 255.255.255.0
+	Description Ligacao da rede local na sede
+	No shutdown 
+
+Configurando uma interface serial
+	Interface serial x (x e’ o numero da interface)
+	Ip address endereco_ip mascara
+	Description descricao da interface
+Se a porta for DCE
+	Clock rate 2000000
+	No shutdown
+
+Exemplo
+	Interface serial 1
+	Ip address 210.220.2.43 255.255.255.0
+	Description Ligacao WAN com a filial 1
+	Clock rate 2000000
+	No shutdown 
+
+Para configurar o RIP
+
+	Router rip
+	Para cada rede conectada
+		Network IP_DA_REDE
+
+	Exemplo
+		Router rip
+		Network 200.1.1.0
+		Network 192.168.19.0
+		Network 170.16.0.0
+
+
+Ainda
+
+	Copy running-config startup-config
+	Para salvar as configuracoes na NVRAM
+
+	Erase startup-config
+	Para apagar a NVRAM
+
+	Reload
+	Para reiniciar o roteador
+
+Comandos Show
+
+Show interfaces
+Para mostrar as informacoes das interfaces
+
+Show interfaces serial/ethernet x
+Para mostrar as informacoes da interface especificada
+
+Show ip route
+Para mostrar a tabela de rotas
+
+Show running-config
+Para mostrar as configuracoes correntes na RAM
+
+Show startup-config
+Para mostrar as configuracoes salvas na NVRAM
+
